@@ -14,8 +14,8 @@ then
     then 
         echo "error in compiling"
     else
-        javac -cp ".:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar" *.java
-        java -cp ".:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar" org.junit.runner.JUnitCore Tester > test.txt
+        javac -cp ".;..lib/hamcrest-core-1.3.jar;../lib/junit-4.13.2.jar" *.java
+        java -cp ".;..lib/junit-4.13.2.jar;../lib/hamcrest-core-1.3.jar" org.junit.runner.JUnitCore Tester > test.txt
         echo $(($NUMTEST-`head -n 2 test.txt | grep -o "E" | wc -l`)) out of $NUMTEST points achieved!
         rm test.txt;
     fi
